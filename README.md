@@ -9,7 +9,6 @@ AssignmentApp is a modern, modular Android application built with Kotlin, Jetpac
 - Hilt for dependency injection
 - Retrofit for networking
 - Custom Gradle convention plugins
-- Comprehensive unit and instrumentation tests (MockK, JUnit, Espresso)
 
 ## Project Structure
 ```
