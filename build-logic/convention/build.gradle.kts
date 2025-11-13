@@ -6,13 +6,13 @@ plugins {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_18
+    targetCompatibility = JavaVersion.VERSION_18
 }
 tasks.withType<KotlinCompile>().configureEach {
     kotlin {
         compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_17)
+            jvmTarget.set(JvmTarget.JVM_18)
         }
     }
 }
@@ -25,55 +25,55 @@ dependencies {
     compileOnly(libs.detekt.gradle.plugin)
 }
 
-//gradlePlugin {
-//    plugins {
-//        register("androidApplicationCompose") {
-//            id = "ppm.android.application.compose"
-//            implementationClass = "AndroidApplicationComposeConventionPlugin"
-//        }
-//        register("androidApplication") {
-//            id = "ppm.android.application"
-//            implementationClass = "AndroidApplicationConventionPlugin"
-//        }
-//        register("androidApplicationFirebase") {
-//            id = "ppm.android.application.firebase"
-//            implementationClass = "AndroidApplicationFirebaseConventionPlugin"
-//        }
-//        register("androidApplicationFlavors") {
-//            id = "ppm.android.application.flavors"
-//            implementationClass = "AndroidApplicationFlavorsConventionPlugin"
-//        }
-//        register("androidFeature") {
-//            id = "ppm.android.feature"
-//            implementationClass = "AndroidFeatureConventionPlugin"
-//        }
-//        register("androidHilt") {
-//            id = "ppm.android.hilt"
-//            implementationClass = "AndroidHiltConventionPlugin"
-//        }
-//        register("androidLibraryCompose") {
-//            id = "ppm.android.library.compose"
-//            implementationClass = "AndroidLibraryComposeConventionPlugin"
-//        }
-//        register("androidLibrary") {
-//            id = "ppm.android.library"
-//            implementationClass = "AndroidLibraryConventionPlugin"
-//        }
-//        register("androidLint") {
-//            id = "ppm.android.lint"
-//            implementationClass = "AndroidLintConventionPlugin"
-//        }
-//        register("androidRoom") {
-//            id = "ppm.android.room"
-//            implementationClass = "AndroidRoomConventionPlugin"
-//        }
-//        register("androidRetrofit") {
-//            id = "ppm.android.retrofit"
-//            implementationClass = "AndroidRetrofitConventionPlugin"
-//        }
-//        register("androidDetekt") {
-//            id = "ppm.android.detekt"
-//            implementationClass = "AndroidDetektConventionPlugin"
-//        }
-//    }
-//}
+gradlePlugin {
+    plugins {
+        register("androidApplicationCompose") {
+            id = "snwct.android.application.compose"
+            implementationClass = "AndroidApplicationComposeConventionPlugin"
+        }
+        register("androidApplication") {
+            id = "snwct.android.application"
+            implementationClass = "AndroidApplicationConventionPlugin"
+        }
+        register("androidApplicationFlavors") {
+            id = "snwct.android.application.flavors"
+            implementationClass = "AndroidApplicationFlavorsConventionPlugin"
+        }
+        register("androidFeature") {
+            id = "snwct.android.feature"
+            implementationClass = "AndroidFeatureConventionPlugin"
+        }
+        register("androidHilt") {
+            id = "snwct.android.hilt"
+            implementationClass = "AndroidHiltConventionPlugin"
+        }
+        register("androidLibraryCompose") {
+            id = "snwct.android.library.compose"
+            implementationClass = "AndroidLibraryComposeConventionPlugin"
+        }
+        register("androidLibrary") {
+            id = "snwct.android.library"
+            implementationClass = "AndroidLibraryConventionPlugin"
+        }
+        register("androidLint") {
+            id = "snwct.android.lint"
+            implementationClass = "AndroidLintConventionPlugin"
+        }
+        register("androidRoom") {
+            id = "snwct.android.room"
+            implementationClass = "AndroidRoomConventionPlugin"
+        }
+        register("androidRetrofit") {
+            id = "snwct.android.retrofit"
+            implementationClass = "AndroidRetrofitConventionPlugin"
+        }
+        register("androidDetekt") {
+            id = "snwct.android.detekt"
+            implementationClass = "AndroidDetektConventionPlugin"
+        }
+        register("androidTest") {
+            id = "snwct.android.test"
+            implementationClass = "AndroidTestConventionPlugin"
+        }
+    }
+}

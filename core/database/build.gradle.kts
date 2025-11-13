@@ -1,44 +1,24 @@
 plugins {
-    alias(libs.plugins.android.library)
-    alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.snwct.android.library)
+    alias(libs.plugins.snwct.android.room)
+    alias(libs.plugins.snwct.android.hilt)
+}
+
+// Force specific versions of serialization libraries to avoid conflicts between room and KSP
+configurations.all {
+    resolutionStrategy.eachDependency {
+        val serdeVer = "1.9.0" // should be >= 1.8.0
+        when(requested.module.toString()) {
+            // json serialization
+            "org.jetbrains.kotlinx:kotlinx-serialization-json" -> useVersion(serdeVer)
+            "org.jetbrains.kotlinx:kotlinx-serialization-json-jvm" -> useVersion(serdeVer)
+            "org.jetbrains.kotlinx:kotlinx-serialization-core" -> useVersion(serdeVer)
+            "org.jetbrains.kotlinx:kotlinx-serialization-core-jvm" -> useVersion(serdeVer)
+            "org.jetbrains.kotlinx:kotlinx-serialization-bom" -> useVersion(serdeVer)
+        }
+    }
 }
 
 android {
-    namespace = "com.snowcat.database"
-    compileSdk {
-        version = release(36)
-    }
-
-    defaultConfig {
-        minSdk = 27
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-    kotlinOptions {
-        jvmTarget = "11"
-    }
-}
-
-dependencies {
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    namespace = "com.syngenta.ppm.database"
 }
